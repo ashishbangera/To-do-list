@@ -12,7 +12,7 @@ const TodoList = () => {
 
     const getAllTodos = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/todolist/getall');
+            const response = await axios.get('https://to-do-list-backend-vvqd.onrender.com/todolist/getall');
             setTodos(response.data.data);
         } catch (error) {
             console.error(error);
@@ -32,7 +32,7 @@ const TodoList = () => {
 
     const handleDelete = async (id) => {
         try{
-            const result = await axios.delete(`http://localhost:5000/todolist/deleteToDo/${id}`);
+            const result = await axios.delete(`https://to-do-list-backend-vvqd.onrender.com/todolist/deleteToDo/${id}`);
             if (result.data.success === 'deleted') {
                 toast.success('Todo deleted successfully!');
                 getAllTodos();
@@ -70,7 +70,7 @@ const TodoList = () => {
             }
 
             try{
-                const result = await axios.put(`http://localhost:5000/todolist/updateToDo/${currentTodo._id}`, {
+                const result = await axios.put(`https://to-do-list-backend-vvqd.onrender.com/todolist/updateToDo/${currentTodo._id}`, {
         message: currentTodo.message
     });
     if (result.data.success === 'updated') {
